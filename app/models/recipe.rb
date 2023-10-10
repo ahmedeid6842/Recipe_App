@@ -5,4 +5,12 @@ class Recipe < ApplicationRecord
 
   validates :name, :preparation_time, :cooking_time, :description, presence: true
   validates :public, inclusion: { in: [true, false] }
+
+  def total_food_items
+    recipe_foods.length
+  end
+
+  def total_price
+    recipe_foods.reduce(0) { |sum, recipe_food| sum + (recipe_food.quantity * recipe_food.food.price) }
+  end
 end
