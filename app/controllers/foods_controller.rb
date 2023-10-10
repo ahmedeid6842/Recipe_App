@@ -14,7 +14,7 @@ class FoodsController < ApplicationController
     @food = current_user.foods.new(food_params)
 
     if @food.valid? && @food.save
-      flash[:success] = "Food has been added successfully"
+      flash[:success] = 'Food has been added successfully'
       redirect_to foods_path
     else
       Rails.logger.error("Failed to create food: #{@food.errors.full_messages}")
