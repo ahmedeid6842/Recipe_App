@@ -1,0 +1,26 @@
+<section class="container mx-auto text-center position-relative">
+  <h1 class="fs-1">Recipes</h1>
+  
+  <%= link_to new_recipe_path(@recipe),
+  class:"btn btn-primary left position-absolute top-0 end-0" do %>
+    <h2>Add a new Recipe</h2>
+  <% end %>  
+
+  <ul class="list-unstyled pt-4">
+    <% @recipes.each_with_index do |recipe, index| %>
+      <li class="text-start d-flex border border-secondary rounded p-2 my-4">
+        <div class="col-4 ">
+          <p class="fs-4">Recipe <%= index + 1 %></p>
+          <p>Name: <%= recipe.name %></p>
+
+          <%= button_to 'Remove', recipe_path(recipe), method: :delete,
+          class: "btn btn-primary" %>
+
+        </div>
+        <div class="col-8 p-3">
+          Description: <%= recipe.description %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>
