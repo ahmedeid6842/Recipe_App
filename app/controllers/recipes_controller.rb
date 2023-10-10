@@ -23,6 +23,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = @user.recipes.find_by(id: params[:id])
+    if @recipe.destroy
+      flash[:notice] = 'Recipe deleted successfully'
+    else
+      flash[:alert] = 'Error! Recipe not deleted'
+    end
+    redirect_to recipes_path
+  end
+
   def find_user_by_id
     @user = current_user
   rescue ActiveRecord::RecordNotFound
