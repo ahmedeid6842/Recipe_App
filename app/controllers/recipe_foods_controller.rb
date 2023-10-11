@@ -17,7 +17,7 @@ class RecipeFoodsController < ApplicationController
       redirect_to recipe_path(@recipe)
     else
       flash[:alert] = 'Error! Recipe food not created'
-      puts @recipe_food.errors.full_messages # Agregar esta línea para ver los errores de validación en la consola
+      puts @recipe_food.errors.full_messages
       redirect_to new_recipe_food_path(recipe_id: @recipe.id)
     end
   end

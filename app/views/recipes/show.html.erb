@@ -26,6 +26,6 @@
     <%= render 'recipe_foods/recipe_foods_detail' %>
 
   </div>
-  <%= button_to "Back to recipes", recipes_path(@recipe.id), method: :get,
+  <%= button_to "Back to recipes", recipes_path(@recipe), method: :get,
     class: 'btn btn-primary px-4 mx-1' %>
 </section>

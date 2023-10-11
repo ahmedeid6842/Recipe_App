@@ -45,6 +45,8 @@ class RecipesController < ApplicationController
     redirect_to @recipe
   end
 
+  private
+
   def find_user_by_id
     @user = current_user
   rescue ActiveRecord::RecordNotFound
