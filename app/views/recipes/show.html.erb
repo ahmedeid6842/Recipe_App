@@ -1,0 +1,31 @@
+<section class="position-relative container">
+  <h1 class="text-center py-5">Recipe name: <%= @recipe.name.capitalize%></h1>
+  <div class="container fs-4">
+    <p class="fs-4">Preparation time: <%= @recipe.preparation_time%> hours</p>
+    <p>Cooking time: <%= @recipe.cooking_time%> hours</p>
+    <p>Description: <%= @recipe.description%></p>  
+  </div>
+  
+  <% if current_user == @recipe.user %>
+    <%= render 'button_public' %>
+  <% end %>
+
+  <% if current_user == @recipe.user %>
+    <div class="d-flex justify-content-between">
+
+      <button>Generate Shoping list</button>
+      <%= render 'button_add_ingredient' %>   
+
+    </div>
+  <% end %>
+
+  <hr>
+  <div>
+    <h2>Ingredients</h2>
+
+    <%= render 'recipe_foods/recipe_foods_detail' %>
+
+  </div>
+  <%= button_to "Back to recipes", recipes_path(@recipe.id), method: :get,
+    class: 'btn btn-primary px-4 mx-1' %>
+</section>
