@@ -3,14 +3,19 @@
   
   <%= link_to new_recipe_path(@recipe),
   class:"btn btn-primary left position-absolute top-0 end-0" do %>
-    <h2>Add a new Recipe</h2>
+    <h4 class="fs-5">Add a new Recipe</h4>
   <% end %>  
 
   <ul class="list-unstyled pt-4">
     <% @recipes.each_with_index do |recipe, index| %>
       <li class="text-start d-flex border border-secondary rounded p-2 my-4">
         <div class="col-4 ">
-          <p class="fs-4">Recipe <%= index + 1 %></p>
+
+          <div class="col-span-2 my-auto">
+            <%= link_to recipe_path(id: recipe.id) do %>    
+              <p class="fs-4">Recipe <%= index + 1 %></p>             
+            <% end %>              
+          </div>          
           <p>Name: <%= recipe.name %></p>
 
           <%= button_to 'Remove', recipe_path(recipe), method: :delete,
