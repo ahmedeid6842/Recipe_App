@@ -15,6 +15,7 @@ class ShoppingListController < ApplicationController
     array.each do |number|
       sum += number.quantity * number.food.price
     end
-    sum
+
+    sum.round(2)
   end
 end
