@@ -2,7 +2,9 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_user_by_id
 
-  def show; end
+  def show
+    @recipe = @user.recipes.find_by(id: params[:id])
+  end
 
   def index
     @recipes = @user.recipes
@@ -33,10 +35,20 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def update
+    @recipe = @user.recipes.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:notice] = 'Recipe updated successfully'
+    else
+      flash[:alert] = 'Error! Recipe not updated'
+    end
+    redirect_to @recipe
+  end
+
   def find_user_by_id
     @user = current_user
   rescue ActiveRecord::RecordNotFound
-    flash[:error] = 'Error! User not found'
+    flash[:alert] = 'Error! User not found'
     redirect_to users_url
   end
 
