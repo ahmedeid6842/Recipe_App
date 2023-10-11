@@ -1,0 +1,36 @@
+<table class="table table-striped table-hover">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th scope="col">Food</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Value</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+          <% @recipe.recipe_foods.each do |recipe_food| %>
+            <tr>
+              <td class="col-3">
+                <%= recipe_food.food.name %>
+              </td>
+              <td class="col-3">
+                <%= recipe_food.quantity %>
+              </td>
+              <td class="col-3">
+                <%= recipe_food.food.price * recipe_food.quantity %>
+              </td>
+              <td class="d-flex">
+
+                <% if current_user == @recipe.user %>
+                  <%= button_to "Remove" , recipe_food_path(recipe_food.id) , method: :delete,
+                    class: 'btn btn-danger' %>
+                  <%= button_to "Modify" , edit_recipe_food_path(recipe_food.id) , method: :get,
+                    class: 'btn btn-primary px-4 mx-1' %>
+                <% end %>
+
+              </td>
+            </tr>
+        </tbody>
+      <% end %>
+    </table>
