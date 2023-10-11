@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :find_user_by_id
 
   def show
-    @recipe = @user.recipes.find_by(id: params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def index
