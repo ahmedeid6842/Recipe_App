@@ -33,6 +33,23 @@ class RecipeFoodsController < ApplicationController
     redirect_to recipe_path(@recipe)
   end
 
+  def edit
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe = @recipe_food.recipe
+    @foods = Food.all
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe = @recipe_food.recipe
+    if @recipe_food.update(recipe_food_params)
+      flash[:notice] = 'Recipe food updated successfully'
+    else
+      flash[:alert] = 'Error! Recipe food not updated'
+    end
+    redirect_to recipe_path(@recipe)
+  end
+
   def recipe_food_params
     params.require(:recipe_food).permit(:food_id, :recipe_id, :quantity)
   end
