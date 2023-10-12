@@ -49,7 +49,7 @@ RSpec.describe 'Visit recipes show page (recipe detail)', type: :feature do
       generate shoping list' do
     expect(page).to have_content 'Make Public'
     expect(page).to have_content 'Add a new ingredient'
-    expect(page).to have_content 'Generate Shoping list'
+    expect(page).to have_content 'Generate shopping list'
   end
 
   it "When click on 'Make Public', should  toogle from private to public and viceverse" do
@@ -62,8 +62,8 @@ RSpec.describe 'Visit recipes show page (recipe detail)', type: :feature do
     expect(page).to have_current_path(new_recipe_food_path(recipe_id: @recipe.id))
   end
 
-  # it "When click on 'Generate Shoping list', should redirects to a shoping list" do
-  #   click_link 'Generate Shoping list'
-  #   expect(page).to have_current_path(recipe_shoping_list_path(@recipe)
-  # end
+  it "When click on 'Generate shopping list', should redirects to a shoping list" do
+    click_link 'Generate shopping list'
+    expect(page).to have_current_path(recipe_shopping_list_index_path(@recipe))
+  end
 end
