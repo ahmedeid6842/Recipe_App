@@ -3,9 +3,9 @@ class ShoppingListController < ApplicationController
 
   def index
     @recipe = Recipe.find(params[:recipe_id])
-    @recipe_foods = RecipeFood.all
-    @food = Food.all
-    @total_price = sum(@recipe.recipe_foods.includes([:food]))
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
+    @food = @recipe.foods
+    @total_price = sum(@recipe_foods)
   end
 
   private
