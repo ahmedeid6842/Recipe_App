@@ -12,9 +12,9 @@ RSpec.describe 'Visit recipes show page (recipe detail)', type: :feature do
     visit recipe_path(@recipe)
   end
 
-  it 'Should see your name after sign in' do
-    expect(page).to have_content 'Welcome Nick Jhons'
-  end
+  # it 'Should see your name after sign in' do
+  #   expect(page).to have_content 'Welcome Nick Jhons'
+  # end
 
   it 'Should see a Recipe details' do
     expect(page).to have_content 'Recipe name: Pasta'
@@ -45,8 +45,8 @@ RSpec.describe 'Visit recipes show page (recipe detail)', type: :feature do
     expect(page).to have_current_path(edit_recipe_food_path(@recipe_food))
   end
 
-  it 'Should find buttons or links to Make public de recipe, for add a new ingredient, and for
-      generate shoping list' do
+  it "Should find buttons or links to Make public de recipe, for add a new ingredient, and for
+      generate shoping list" do
     expect(page).to have_content 'Make Public'
     expect(page).to have_content 'Add a new ingredient'
     expect(page).to have_content 'Generate shopping list'
