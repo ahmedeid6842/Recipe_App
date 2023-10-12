@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   root "foods#index"
 
-  resources :recipes
+  resources :recipes do
+    resources :shopping_list, only: %i[index]
+  end
   resources :recipe_foods
   resources :foods
-  resources :public_recipes, only: %i[index]  
+  resources :public_recipes, only: %i[index]
 end

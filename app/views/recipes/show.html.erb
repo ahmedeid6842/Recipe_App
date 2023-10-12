@@ -13,7 +13,7 @@
   <% if current_user == @recipe.user %>
     <div class="d-flex justify-content-between">
 
-      <button>Generate Shoping list</button>
+      <%= link_to 'Generate shopping list', recipe_shopping_list_index_path(@recipe), class: 'btn btn-outline-dark mt-5 ' %>
       <%= render 'button_add_ingredient' %>   
 
     </div>
