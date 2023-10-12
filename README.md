@@ -32,6 +32,7 @@
 
 **Recipe App** 
 
+The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -148,9 +149,9 @@ bundle exec rspec
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Ahmed Eid**
-
-
-
+- Github: [@ahmedeid6842](https://github.com/ahmedeid6842/)
+- LinkedIn : [Ahmed Eid](https://www.linkedin.com/in/ahmed-eid-0018571b1/)
+- Twitter: [@ahmedeid2684](https://twitter.com/ahmedeid2684)
 
 👤 **César Herrera**
 
