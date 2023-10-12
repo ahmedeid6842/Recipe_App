@@ -17,10 +17,10 @@ class RecipesController < ApplicationController
   def create
     @recipe = @user.recipes.new(recipe_params)
     if @recipe.save
-      flash[:notice] = "Recipe created successfully"
+      flash[:notice] = 'Recipe created successfully'
       redirect_to recipes_path
     else
-      flash[:alert] = "Error! Recipe not created"
+      flash[:alert] = 'Error! Recipe not created'
       redirect_to new_recipe_path
     end
   end
@@ -28,9 +28,9 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = @user.recipes.find_by(id: params[:id])
     if @recipe.destroy
-      flash[:notice] = "Recipe deleted successfully"
+      flash[:notice] = 'Recipe deleted successfully'
     else
-      flash[:alert] = "Error! Recipe not deleted"
+      flash[:alert] = 'Error! Recipe not deleted'
     end
     redirect_to recipes_path
   end
@@ -38,9 +38,9 @@ class RecipesController < ApplicationController
   def update
     @recipe = @user.recipes.find(params[:id])
     if @recipe.update(recipe_params)
-      flash[:notice] = "Recipe updated successfully"
+      flash[:notice] = 'Recipe updated successfully'
     else
-      flash[:alert] = "Error! Recipe not updated"
+      flash[:alert] = 'Error! Recipe not updated'
     end
     redirect_to @recipe
   end
@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
   def find_user_by_id
     @user = current_user
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "Error! User not found"
+    flash[:alert] = 'Error! User not found'
     redirect_to users_url
   end
 
