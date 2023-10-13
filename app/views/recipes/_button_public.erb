@@ -1,0 +1,7 @@
+<div class="position-absolute top-0 end-0">
+  <% if @recipe.public %>
+    <%= button_to 'Make Private', recipe_path(@recipe.id), method: :patch, params: { recipe: { public: false } }, class: 'btn btn-danger' %>
+  <% else %>
+    <%= button_to 'Make Public', recipe_path(@recipe.id), method: :patch, params: { recipe: { public: true } }, class: 'btn btn-primary' %>
+  <% end %>
+</div>
